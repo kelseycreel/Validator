@@ -10,7 +10,7 @@ namespace Validator
             Console.WriteLine("Enter a pin. Note: your pin must be between 4 and 8 digits and be numbers only.");
             var pin = Console.ReadLine();
             var pinValid = false;
-            
+
             while (!pinValid)
             {
                 if (pin.Length < 4 || pin.Length > 8)
@@ -33,7 +33,7 @@ namespace Validator
                         Console.WriteLine("Your pin is valid");
                     else
                         Console.WriteLine("Your pin is invalid, please try again");
-                        pin = Console.ReadLine();
+                    pin = Console.ReadLine();
                 }
             }
 
@@ -44,14 +44,14 @@ namespace Validator
 
             while (!validPhone)
             {
-            char[] charsToTrim = { '(', ')', ' ', '-' };
-            string[] result = phoneNum.Split(charsToTrim, StringSplitOptions.RemoveEmptyEntries);
+                char[] charsToTrim = { '(', ')', ' ', '-' };
+                string[] result = phoneNum.Split(charsToTrim, StringSplitOptions.RemoveEmptyEntries);
 
-            var phoneNoChars = "";
-            foreach (var value in result)
-                phoneNoChars += value;
+                var phoneNoChars = "";
+                foreach (var value in result)
+                    phoneNoChars += value;
 
-            var firstThreeNumbers = phoneNoChars.Substring(0, 3);
+                var firstThreeNumbers = phoneNoChars.Substring(0, 3);
 
                 if (phoneNoChars.Length != 10)
                 {
@@ -100,7 +100,95 @@ namespace Validator
                     validEmail = true;
                 }
             }
+
+            // Spongebob
+            Console.WriteLine("Are you mOcKiNg Me?!?!");
+            var input = Console.ReadLine();
+            var validMock = false;
+
+            var isUpper = new bool[input.Length];
+            for (var i = 0; i < input.Length; i++)
+            {
+                if (Char.IsUpper(input, i))
+                {
+                    isUpper[i] = true;
+                }
+                else
+                    isUpper[i] = false;
+            }
+            for (var j = 0; j < input.Length; j++)
+            {
+                if (j % 2 == 0)
+                {
+                    if (isUpper[j] == true)
+                        validMock = true;
+                    else
+                        validMock = false;
+                }
+                if (j % 2 != 0)
+                {
+                    if (isUpper[j] == false)
+                        validMock = true;
+                    else
+                        validMock = false;
+                }
+            }
+            if (validMock)
+            {
+                Console.WriteLine("sOoOoOoO rUde Of yOu");
                 Console.ReadKey();
+            }
+            else
+                Console.WriteLine("HaHa No You'Re NoT bUt I aM");
+            Console.ReadKey();
+
+            // Power Ranger
+            Console.WriteLine("What's your secret identity?");
+            var identity = Console.ReadLine(); 
+            
+            //Jason Lee Scott, Kimberly Hart, Zack Taylor, Trini Kwan and Billy Cranston
+
+            switch (identity)
+            {
+                case "Jason Lee Scott":
+                    Console.WriteLine("It's morphin time!");
+                    break;
+                case "Kimberly Hart":
+                    Console.WriteLine("It's morphin time!");
+                    break;
+                case "Zack Taylor":
+                    Console.WriteLine("It's morphin time!");
+                    break;
+                case "Trini Kwan":
+                    Console.WriteLine("It's morphin time!");
+                    break;
+                case "Billy Cranston":
+                    Console.WriteLine("It's morphin time!");
+                    break;
+                default:
+                    Console.WriteLine("An imposter!");
+                    break;
+            }
+            Console.ReadKey();
+
+            //Palindrome......
+            Console.WriteLine("Write a palindrome. Or don't, I don't care");
+            var palin = Console.ReadLine();
+
+            string firstHalf = palin.Substring(0, palin.Length / 2);
+            char[] arr = palin.ToCharArray();
+
+            Array.Reverse(arr);
+
+            string temp = new string(arr);
+            string secondHalf = temp.Substring(0, temp.Length / 2);
+
+            if (firstHalf.Equals(secondHalf))
+                Console.WriteLine("Oh, a palindrome!");
+            else
+                Console.WriteLine("Boo you");
+
+            Console.ReadKey();
         }
     }
 }
